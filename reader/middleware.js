@@ -10,9 +10,6 @@ function addHandlers(dir, file){
   handlers[name] = item.handle;
 }
 
-// Import module models
-let parent = path.dirname(path.dirname(__dirname));
-
 modules.forEach((el) => {
   let root = null;
 
