@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const basename = path.dirname(require.main.filename);
 let handlers = {};
-const{modules} = App.rootConfig;
+const{modules} = App.options;
 let actions = {};
 
 function addHandlers(dir, file){
