@@ -31,9 +31,9 @@ function addHandlers(dir, file){
 modules.forEach((el) => {
   let root = null;
 
-  // Check if have #
-  if (el.charAt(0) === '#') root = [basename, 'src', el.replace(/^#/, '') , 'helpers'].join(path.sep);
-  else root = [basename, 'node_modules', el, 'helpers'].join(path.sep);
+  // Check if have not start @
+  if (el.charAt(0) !== '@') root = [basename, 'src', el, 'helpers'].join(path.sep);
+  else root = [basename, 'node_modules', el.replace(/^@/, ''), 'helpers'].join(path.sep);
 
   if (fs.existsSync(root)) {
     fs
