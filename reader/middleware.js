@@ -1,6 +1,5 @@
 const fs = require('fs');
 const path = require('path');
-const basename = path.dirname(require.main.filename);
 let handlers = {};
 const{modules} = App.options;
 
@@ -11,11 +10,7 @@ function addHandlers(dir, file){
 }
 
 modules.forEach((el) => {
-  let root = null;
-
-  // Check if have not start @
-  if (el.charAt(0) !== '@') root = [basename, 'src', el, 'middleware'].join(path.sep);
-  else root = [basename, 'node_modules', el.replace(/^@/, ''), 'middleware'].join(path.sep);
+  let root = __modulePath(el, 'middleware');
 
   if (fs.existsSync(root)) {
     fs
