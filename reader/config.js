@@ -14,7 +14,7 @@ function addHandlers(dir, file){
 }
 
 modules.forEach((el) => {
-  let root = __modulePath(el, 'config');
+  let root = App.base.modulePath(el, 'config');
 
   if (fs.existsSync(root)) {
     fs

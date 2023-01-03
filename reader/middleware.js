@@ -10,7 +10,7 @@ function addHandlers(dir, file){
 }
 
 modules.forEach((el) => {
-  let root = __modulePath(el, 'middleware');
+  let root = App.base.modulePath(el, 'middleware');
 
   if (fs.existsSync(root)) {
     fs
